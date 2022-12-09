@@ -2,7 +2,7 @@ process STAR_ALIGN_IGENOMES {
     tag "$meta.id"
     label 'process_high'
 
-    conda (params.enable_conda ? "seqera::star=2.6.1d seqera::samtools=1.10 conda-forge::gawk=5.1.0" : null)
+    conda (params.enable_conda ? "star=2.6.1d samtools=1.10 conda-forge::gawk=5.1.0" : null)
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'https://depot.galaxyproject.org/singularity/mulled-v2-1fa26d1ce03c295fe2fdcf85831a92fbcbd7e8c2:59cdd445419f14abac76b31dd0d71217994cbcc9-0' :
         'quay.io/biocontainers/mulled-v2-1fa26d1ce03c295fe2fdcf85831a92fbcbd7e8c2:59cdd445419f14abac76b31dd0d71217994cbcc9-0' }"

@@ -1,7 +1,7 @@
 process SALMON_TXIMPORT {
     label "process_medium"
 
-    conda (params.enable_conda ? "seqera::bioconductor-tximeta=1.12.0" : null)
+    conda (params.enable_conda ? "bioconductor-tximeta=1.12.0" : null)
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'https://depot.galaxyproject.org/singularity/bioconductor-tximeta:1.8.0--r40_0' :
         'quay.io/biocontainers/bioconductor-tximeta:1.8.0--r40_0' }"
